@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <ConstraintSet android:id="@+id/expanded">
+        <Constraint
+            android:id="@id/ltPlayer"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Constraint
+            android:id="@id/ivSongImage"
+            android:layout_height="160dp"
+            android:layout_width="160dp"
+            android:layout_marginTop="60dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Constraint
+            android:id="@id/tvSongName"
+            android:layout_marginTop="60dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivSongImage" />
+
+        <Constraint
+            android:id="@id/tvSingerName"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSongName" />
+
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/collapsed">
+        <Constraint
+            android:id="@id/ltPlayer"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Constraint
+            android:id="@id/ivSongImage"
+            android:layout_height="40dp"
+            android:layout_width="40dp"
+            android:layout_marginTop="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <Constraint
+            android:id="@id/tvSongName"
+            android:layout_marginTop="0dp"
+            app:layout_constraintStart_toStartOf="@id/ivSongImage"
+            app:layout_constraintTop_toTopOf="@id/ivSongImage"
+            />
+
+        <Constraint
+            android:id="@id/tvSingerName"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="@id/ivSongImage"
+            app:layout_constraintTop_toBottomOf="@id/tvSongName" />
+
+    </ConstraintSet>
+
+    <Transition
+        app:constraintSetStart="@+id/collapsed"
+        app:constraintSetEnd="@id/expanded"
+        app:motionInterpolator="easeInOut">
+
+        <OnSwipe
+            app:dragDirection="dragUp"
+            app:touchAnchorId="@id/ivSongImage" />
+
+        <OnClick
+            app:targetId="@id/tvSongName"
+            app:clickAction="toggle"/>
+
+    </Transition>
+
+</MotionScene>
