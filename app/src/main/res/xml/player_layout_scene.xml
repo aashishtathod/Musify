@@ -7,12 +7,15 @@
             android:id="@id/ivSongImage"
             android:layout_width="60dp"
             android:layout_height="60dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <Constraint
             android:id="@id/transparentView"
             android:background="@color/dark_gray"
+            android:layout_marginTop="-16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -20,22 +23,27 @@
 
         <Constraint
             android:id="@id/tvSongName"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
+            android:layout_marginEnd="16dp"
+
             android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@id/tvSingerName"
             app:layout_constraintStart_toEndOf="@+id/ivSongImage"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/ivSongImage" />
 
         <Constraint
             android:id="@id/tvSingerName"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@+id/ivSongImage"
             app:layout_constraintStart_toStartOf="@+id/tvSongName"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvSongName" />
 
     </ConstraintSet>
@@ -63,25 +71,28 @@
 
         <Constraint
             android:id="@+id/tvSongName"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textSize="24sp"
             android:textStyle="bold"
             android:textColor="@color/white"
             android:layout_marginTop="60dp"
+            android:layout_marginStart="16dp"
             android:text="Lorem Ipsum"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivSongImage"  />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivSongImage" />
 
         <Constraint
             android:id="@+id/tvSingerName"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:textColor="@color/text_gray"
             android:layout_marginTop="8dp"
             android:text="Lorem Ipsum"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tvSongName"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvSongName" />
 
     </ConstraintSet>

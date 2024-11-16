@@ -26,6 +26,8 @@
         android:layout_marginBottom="16dp"
         android:contentDescription=""
         android:src="@color/text_gray"
+        app:layout_goneMarginBottom="16dp"
+        app:layout_goneMarginStart="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
