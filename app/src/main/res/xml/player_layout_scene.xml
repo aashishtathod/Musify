@@ -27,24 +27,36 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:layout_marginEnd="16dp"
-
             android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@id/tvSingerName"
             app:layout_constraintStart_toEndOf="@+id/ivSongImage"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btnPlayPause"
             app:layout_constraintTop_toTopOf="@+id/ivSongImage" />
 
         <Constraint
             android:id="@id/tvSingerName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="2dp"
             android:layout_marginEnd="16dp"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@+id/ivSongImage"
             app:layout_constraintStart_toStartOf="@+id/tvSongName"
+            app:layout_constraintEnd_toStartOf="@id/btnPlayPause"
+            app:layout_constraintTop_toBottomOf="@id/tvSongName"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+
+        <Constraint
+            android:id="@id/btnPlayPause"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/play"
+            android:backgroundTint="@color/transparent"
+            app:layout_constraintBottom_toBottomOf="@id/tvSingerName"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvSongName" />
+            app:layout_constraintTop_toTopOf="@id/tvSongName" />
 
     </ConstraintSet>
 
@@ -70,7 +82,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Constraint
-            android:id="@+id/tvSongName"
+            android:id="@id/tvSongName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textSize="24sp"
@@ -84,7 +96,7 @@
             app:layout_constraintTop_toBottomOf="@id/ivSongImage" />
 
         <Constraint
-            android:id="@+id/tvSingerName"
+            android:id="@id/tvSingerName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textSize="20sp"
@@ -94,6 +106,16 @@
             app:layout_constraintStart_toStartOf="@+id/tvSongName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvSongName" />
+
+        <Constraint
+            android:id="@id/btnPlayPause"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/play_circular_bg_white"
+            app:layout_constraintTop_toBottomOf="@id/tvSingerName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </ConstraintSet>
 
@@ -107,8 +129,8 @@
             app:touchAnchorId="@id/ivSongImage" />
 
         <OnClick
-            app:clickAction="toggle"
-            app:targetId="@id/tvSongName" />
+            app:clickAction="transitionToEnd"
+            app:targetId="@id/ivSongImage" />
 
     </Transition>
 
