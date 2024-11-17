@@ -19,7 +19,13 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/ivSongImage" />
+            app:layout_constraintTop_toTopOf="@id/ivSongImage">
+
+            <CustomAttribute
+                app:attributeName="background"
+                app:customColorDrawableValue="@color/dark_gray" />
+
+        </Constraint>
 
         <Constraint
             android:id="@id/tvSongName"
@@ -79,7 +85,13 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <CustomAttribute
+                app:attributeName="background"
+                app:customColorDrawableValue="@color/black" />
+
+        </Constraint>
 
         <Constraint
             android:id="@id/tvSongName"
