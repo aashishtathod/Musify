@@ -1,4 +1,4 @@
-package dev.aashishtathod.musify.ui
+package dev.aashishtathod.musify.ui.player
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,12 +8,14 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import dagger.hilt.android.AndroidEntryPoint
 import dev.aashishtathod.musify.databinding.FragmentMusicPlayerBinding
+import dev.aashishtathod.musify.ui.activity.MainViewModel
 
 @AndroidEntryPoint
 class MusicPlayerFragment : Fragment() {
 
     private lateinit var binding: FragmentMusicPlayerBinding
     private lateinit var viewModel: MusicPlayerViewModel
+    private lateinit var parentViewModel: MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,11 +39,7 @@ class MusicPlayerFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this)[MusicPlayerViewModel::class.java]
-        viewModel.getDownloadedMusic()
-
-        viewModel.musicList.observe(viewLifecycleOwner) {
-           println("Debug -> $it")
-        }
+        parentViewModel = ViewModelProvider(requireActivity())[MainViewModel::class.java]
 
     }
 

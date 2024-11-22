@@ -1,4 +1,4 @@
-package dev.aashishtathod.musify.ui
+package dev.aashishtathod.musify.ui.activity
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -11,19 +11,22 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class MusicPlayerViewModel @Inject constructor(
+class MainViewModel @Inject constructor(
     private val getDownloadedMusicUseCase: GetDownloadedMusicUseCase
-) : ViewModel (){
+): ViewModel() {
 
     private val _musicList = MutableLiveData<List<Song>>()
     val musicList: LiveData<List<Song>> = _musicList
 
-    fun getDownloadedMusic() {
-       viewModelScope.launch {
-           getDownloadedMusicUseCase().collect {
-               _musicList.postValue(it)
-           }
-       }
+    init {
+        getDownloadedMusic()
     }
 
+    private fun getDownloadedMusic() {
+        viewModelScope.launch {
+            getDownloadedMusicUseCase().collect {
+                _musicList.postValue(it)
+            }
+        }
+    }
 }
